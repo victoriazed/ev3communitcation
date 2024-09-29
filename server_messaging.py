@@ -7,17 +7,23 @@
 # The server must be started before the client!
 
 from pybricks.messaging import BluetoothMailboxServer, TextMailbox
+from pybricks.tools import wait
+from pybricks.hubs import EV3Brick
+
+# Create an instance of the EV3Brick
+brick = EV3Brick()
 
 server = BluetoothMailboxServer()
 mbox = TextMailbox('greeting', server)
 
 # The server must be started before the client!
-print('waiting for connection...')
+brick.screen.print('Waiting for connection...')
 server.wait_for_connection()
-print('connected!')
+brick.screen.print('Connected!')
 
-# In this program, the server waits for the client to send the first message
-# and then sends a reply.
+
 mbox.wait()
-print(mbox.read())
+received_message = mbox.read()
+brick.screen.print(received_message)
+wait(2000)
 mbox.send('hello to you!')
