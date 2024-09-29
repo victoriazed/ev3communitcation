@@ -22,7 +22,6 @@ while True:
     received_message = mbox.read()
     brick.screen.print(received_message)
 
-
     if received_message == 'play_sound':
         brick.speaker.beep()
         brick.screen.print('Playing sound!')

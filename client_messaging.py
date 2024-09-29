@@ -17,9 +17,12 @@ client.connect(SERVER)
 brick.screen.print('Connected!')
 
 
+
 while True:
 
-    if Button.CENTER in brick.buttons.pressed():
+    pressed = brick.buttons.pressed()
+
+    if Button.CENTER in pressed:
         mbox.send('play_sound')
         brick.screen.print('Sent: play_sound')
         wait(500) 
