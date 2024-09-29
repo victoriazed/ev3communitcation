@@ -3,10 +3,11 @@
 from pybricks.messaging import BluetoothMailboxClient, TextMailbox
 from pybricks.tools import wait
 from pybricks.hubs import EV3Brick
+from pybricks.parameters import Button
 
 brick = EV3Brick()
 
-SERVER = 'ev3dev'  # Change this to the name of your server
+SERVER = 'ev3dev'  
 
 client = BluetoothMailboxClient()
 mbox = TextMailbox('greeting', client)
@@ -15,9 +16,14 @@ brick.screen.print('Establishing connection...')
 client.connect(SERVER)
 brick.screen.print('Connected!')
 
-# Use a loop to keep the client running
+
 while True:
-    mbox.send('hello!')
+
+    if Button.CENTER in brick.buttons.pressed():
+        mbox.send('play_sound')
+        brick.screen.print('Sent: play_sound')
+        wait(500) 
+    
     mbox.wait() 
     received_message = mbox.read()
     brick.screen.print(received_message) 
