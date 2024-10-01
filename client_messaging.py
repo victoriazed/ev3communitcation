@@ -27,10 +27,9 @@ while True:
         brick.screen.print('Sent: play_sound')
         wait(500) 
     
-    mbox.wait() 
-    received_message = mbox.read()
-    brick.screen.print(received_message) 
-    wait(2000)
+   # mbox.wait() 
+    #received_message = mbox.read()
+    #brick.screen.print(received_message) 
 
 
-    
+

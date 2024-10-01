@@ -18,6 +18,7 @@ server.wait_for_connection()
 brick.screen.print('Connected!')
 
 while True:
+
     mbox.wait()
     received_message = mbox.read()
     brick.screen.print(received_message)
@@ -26,6 +27,3 @@ while True:
         brick.speaker.beep()
         brick.screen.print('Playing sound!')
     
-
-    mbox.send('hello to you!')
-    wait(2000)
