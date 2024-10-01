@@ -31,3 +31,6 @@ while True:
     received_message = mbox.read()
     brick.screen.print(received_message) 
     wait(2000)
+
+
+    
