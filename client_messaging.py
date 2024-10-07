@@ -22,14 +22,12 @@ while True:
 
     pressed = brick.buttons.pressed()
 
-    if pressed and Button.CENTER in pressed:
+    if pressed and Button.CENTER in pressed: # "if pressed"
         mbox.send('play_sound')
         brick.screen.print('Sent: play_sound')
-        wait(500) 
+        wait(500)
     
-   # mbox.wait() 
-    #received_message = mbox.read()
-    #brick.screen.print(received_message) 
+
 
 
 
